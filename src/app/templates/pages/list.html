@@ -1,0 +1,16 @@
+<custom-header *ngIf="apiResponsePrototype" [title]="apiResponsePrototype.name"></custom-header>
+<ion-content fullscreen>
+    <ion-list lines="none">
+        <custom-list-element *ngFor="let author of authorPrototype">
+            <h1>{{ author.name }}</h1>
+            <span>
+                <ion-badge color="secondary">
+                    {{ getTermIndexesForEachAuthor(author) }}
+                </ion-badge>
+                <ion-badge color="dark" *ngIf="author.latestCountry">
+                    {{ author.latestCountry }}
+                </ion-badge>
+            </span>
+        </custom-list-element>
+    </ion-list>
+</ion-content>
