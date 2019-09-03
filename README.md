@@ -2,5 +2,5 @@
 
 :exclamation::exclamation: Under construction :exclamation::exclamation:
 
-# Quickstart 🚀#
+# Quickstart 🚀
 To run type **ionic serve**
