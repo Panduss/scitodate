@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiResponsePrototype } from '../apiResponse/prototype';
+import { ApiResponsePrototype } from './prototype';
 import { Observable } from 'rxjs';
 
 @Injectable()
-class Author {
+class NewsFeed {
 
     private url = 'https://assessment.scitodate.com/api/segment';
 
@@ -18,4 +18,4 @@ class Author {
     }
 }
 
-export { Author as AuthorService };
+export { NewsFeed as NewsFeedService };
