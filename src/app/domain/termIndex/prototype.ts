@@ -1,7 +1,7 @@
 interface Prototype {
     term: string;
     path: Array<string>;
-    highlight: Array<string>;
+    highlights: Array<string>;
 }
 
 export { Prototype as TermIndexPrototype };

@@ -1,4 +1,5 @@
 import { MatchedTermsPrototype } from '../matchedTerms/prototype';
+import { PapersPrototype } from '../papers/prototype';
 
 interface Prototype {
     id: string;
@@ -11,7 +12,7 @@ interface Prototype {
     latestAffStr: string;
     latestCountry: string;
     latestInstitution: string;
-    papers: Array<string>;
+    papers: Array<PapersPrototype>;
     latestPaperDate: string;
     nPapers: number;
     nPapersMatched: number;

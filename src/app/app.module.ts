@@ -7,8 +7,9 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {AuthorService} from './domain/author/service';
+import {NewsFeedService} from './domain/apiResponse/service';
 import {CargoInterceptor} from './infrastructure/interceptor/cargo';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [AppComponent],
@@ -17,7 +18,8 @@ import {CargoInterceptor} from './infrastructure/interceptor/cargo';
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        NoopAnimationsModule
     ],
     providers: [
         StatusBar,
@@ -26,7 +28,7 @@ import {CargoInterceptor} from './infrastructure/interceptor/cargo';
             provide: RouteReuseStrategy,
             useClass: IonicRouteStrategy
         },
-        AuthorService,
+        NewsFeedService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: CargoInterceptor,

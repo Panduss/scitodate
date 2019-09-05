@@ -4,7 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { ListPage } from '../../components/pages/list';
 import { RouterModule, Routes } from '@angular/router';
 import { ListElementModule } from '../components/listElement';
-import {HeaderModule} from '../components/header';
+import { HeaderModule } from '../components/header';
+import { MatButtonModule, MatExpansionModule } from '@angular/material';
 
 const routes: Routes = [{
      path: '',
@@ -16,7 +17,9 @@ const routes: Routes = [{
         IonicModule,
         RouterModule.forChild(routes),
         ListElementModule,
-        HeaderModule
+        HeaderModule,
+        MatExpansionModule,
+        MatButtonModule
     ],
     declarations: [
         ListPage
