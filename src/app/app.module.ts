@@ -9,9 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NewsFeedService } from './domain/newsFeed/service';
 import { CargoInterceptor } from './infrastructure/interceptor/cargo';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxSmartModalModule } from 'ngx-smart-modal';
-import { ModalProvider } from './infrastructure/providers/modal';
 
 @NgModule({
     declarations: [AppComponent],
@@ -20,9 +17,7 @@ import { ModalProvider } from './infrastructure/providers/modal';
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-        HttpClientModule,
-        NoopAnimationsModule,
-        NgxSmartModalModule.forRoot()
+        HttpClientModule
     ],
     providers: [
         StatusBar,
@@ -36,8 +31,7 @@ import { ModalProvider } from './infrastructure/providers/modal';
             provide: HTTP_INTERCEPTORS,
             useClass: CargoInterceptor,
             multi: true
-        },
-        ModalProvider
+        }
     ],
     bootstrap: [AppComponent]
 })
