@@ -21,9 +21,9 @@
                 </span>
             </div>
             <div id="paperTitle" *ngFor="let paper of getPapersForEachAuthor(author)">
-            <ion-item>
-            <p *ngIf="paper">{{ paper.title }}</p>
-            </ion-item>
+                <ion-item>
+                    <p *ngIf="paper">{{ paper.title }}</p>
+                </ion-item>
             </div>
         </custom-list-element>
     </ion-list>
