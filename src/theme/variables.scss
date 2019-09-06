@@ -2,30 +2,64 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
-:root {
+.theme-custom {
+
+  @at-root {
+    /* lato-regular - latin */
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      src: url('../assets/fonts/lato-v16-latin-regular.eot'); /* IE9 Compat Modes */
+      src: local('Lato Regular'), local('Lato-Regular'),
+      url('../assets/fonts/lato-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+      url('../assets/fonts/lato-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+      url('../assets/fonts/lato-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/fonts/lato-v16-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+    }
+    /* lato-700 - latin */
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 700;
+      src: url('../assets/fonts/lato-v16-latin-700.eot'); /* IE9 Compat Modes */
+      src: local('Lato Bold'), local('Lato-Bold'),
+      url('../assets/fonts/lato-v16-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/fonts/lato-v16-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+      url('../assets/fonts/lato-v16-latin-700.woff') format('woff'), /* Modern Browsers */
+      url('../assets/fonts/lato-v16-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/fonts/lato-v16-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
+    }
+  }
+
+  --ion-font-family: 'Lato', sans-serif;
+
+
   /** primary **/
-  --ion-color-primary: #607D8B;
-  --ion-color-primary-rgb: 96, 125, 139;
+  --ion-color-primary: #F2392F;
+  --ion-color-primary-rgb: 242, 57, 47;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #567280;
-  --ion-color-primary-tint: #7595a5;
+  --ion-color-primary-shade: #c03128;
+  --ion-color-primary-tint: #ff3c32;
+
 
   /** secondary **/
-  --ion-color-secondary: #FF9800;
+  --ion-color-secondary: #EEA133;
   --ion-color-secondary-rgb: 255, 152, 0;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #c06900;
-  --ion-color-secondary-tint: rgb(255, 173, 7);
+  --ion-color-secondary-shade: #dc9133;
+  --ion-color-secondary-tint: #ffad35;
 
   /** tertiary **/
-  --ion-color-tertiary: #455A64;
-  --ion-color-tertiary-rgb: 69, 90, 100;
+  --ion-color-tertiary: #1F9A4B;
+  --ion-color-tertiary-rgb: 31, 154, 75;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #3c4d57;
-  --ion-color-tertiary-tint: #566e78;
+  --ion-color-tertiary-shade: #1c843d;
+  --ion-color-tertiary-tint: #25bd59;
 
   /** success **/
   --ion-color-success: #10dc60;
@@ -52,12 +86,12 @@
   --ion-color-danger-tint: #f25454;
 
   /** dark **/
-  --ion-color-dark: #222428;
-  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark: #1F1A3C;
+  --ion-color-dark-rgb: 31, 26, 60;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #1e2023;
-  --ion-color-dark-tint: #383a3e;
+  --ion-color-dark-shade: #111122;
+  --ion-color-dark-tint: #291d4a;
 
   /** medium **/
   --ion-color-medium: #989aa2;
@@ -68,19 +102,25 @@
   --ion-color-medium-tint: #a2a4ab;
 
   /** light **/
-  --ion-color-light: #CFD8DC;
+  --ion-color-light: #353560;
   --ion-color-light-rgb: 244, 244, 244;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #a7b0b4;
-  --ion-color-light-tint: #e1eaee;
+  --ion-color-light-shade: #262647;
+  --ion-color-light-tint: #444470;
 
   ion-list {
-    background: #CFD8DC;
+    background: #F8F8F8;
   }
 
   ion-card {
     background: #ffffff;
+    border-radius: 0;
+  }
+
+  .company-logo {
+    max-width: 150px;
+    padding-right: 10px;
   }
 }
 

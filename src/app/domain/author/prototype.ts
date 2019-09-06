@@ -3,22 +3,26 @@ import { PapersPrototype } from '../papers/prototype';
 
 interface Prototype {
     id: string;
-    score: number;
     name: string;
     firstNames: string;
-    surname: string;
     firstAuthorCount: number;
+    firstAuthorMatchedCount;
+    lastAuthorCount: number;
     lastAuthorMatchedCount: number;
     latestAffStr: string;
     latestCountry: string;
+    latestCountryCode: string;
+    latestInstAffstr: string;
     latestInstitution: string;
-    papers: Array<PapersPrototype>;
     latestPaperDate: string;
-    nPapers: number;
-    nPapersMatched: number;
-    nPapersByYears: {};
     matchedSegments: {};
     matchedTerms: MatchedTermsPrototype;
+    npapers: number;
+    npapersByYears: {};
+    npapersMatched: number;
+    papers: Array<PapersPrototype>;
+    score: number;
+    surname: string;
 }
 
 export { Prototype as AuthorPrototype };

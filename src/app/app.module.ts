@@ -7,7 +7,7 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {NewsFeedService} from './domain/apiResponse/service';
+import {NewsFeedService} from './domain/newsFeed/service';
 import {CargoInterceptor} from './infrastructure/interceptor/cargo';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 

@@ -6,4 +6,4 @@ interface Prototype {
     total: number;
 }
 
-export { Prototype as ApiResponsePrototype };
+export { Prototype as NewsFeedPrototype };

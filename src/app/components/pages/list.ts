@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsFeedService } from '../../domain/apiResponse/service';
+import { NewsFeedService } from '../../domain/newsFeed/service';
 import { AuthorPrototype } from '../../domain/author/prototype';
-import { ApiResponsePrototype } from '../../domain/apiResponse/prototype';
+import { NewsFeedPrototype } from '../../domain/newsFeed/prototype';
 import { TermIndexPrototype } from '../../domain/termIndex/prototype';
 import { PapersPrototype } from '../../domain/papers/prototype';
 
@@ -13,16 +13,17 @@ class List implements OnInit {
 
     private month = '06';
     private year = '2019';
-    public authorPrototype?: AuthorPrototype;
-    public apiResponsePrototype: ApiResponsePrototype;
+    public authorPrototype: AuthorPrototype;
+    private apiResponsePrototype: NewsFeedPrototype;
+
     public constructor(
         private newsFeedService: NewsFeedService
     ) {
     }
 
     public ngOnInit() {
-        this.newsFeedService.getAuthors().subscribe(
-            (apiResponsePrototype: ApiResponsePrototype) => {
+        this.newsFeedService.getAuthors('ac').subscribe(
+            (apiResponsePrototype: NewsFeedPrototype) => {
                 this.apiResponsePrototype = apiResponsePrototype;
                 this.authorPrototype  = apiResponsePrototype.authors;
             }
@@ -51,7 +52,7 @@ class List implements OnInit {
 
         if (termIndex) {
 
-            return termIndex.filter(
+            const filteredIndexTerms = termIndex.filter(
                 (term) => {
 
                     if (term.highlights.length > 0) {
@@ -59,6 +60,10 @@ class List implements OnInit {
                     }
                 }
             );
+
+            return filteredIndexTerms.sort( (a, b) => {
+                return b.highlights.length - a.highlights.length;
+            });
         }
     }
 }

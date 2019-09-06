@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiResponsePrototype } from './prototype';
+import { NewsFeedPrototype } from './prototype';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -13,8 +13,8 @@ class NewsFeed {
     ) {
     }
 
-    public getAuthors(): Observable<ApiResponsePrototype> {
-        return this.http.get<ApiResponsePrototype>(`${this.url}/ac`);
+    public getAuthors(route: string): Observable<NewsFeedPrototype> {
+        return this.http.get<NewsFeedPrototype>(`${this.url}/${route}`);
     }
 }
 
