@@ -1,8 +1,9 @@
 <ion-header>
     <ion-toolbar color='primary'>
 
-        <ion-buttons slot="start" *ngIf="hasBackbutton" text-center>
-            <ion-back-button defaultHref="" text=""></ion-back-button>
+        <ion-buttons slot="start" text-center>
+            <ion-back-button  *ngIf="hasBackbutton" defaultHref="" text=""></ion-back-button>
+            <ion-menu-button  *ngIf="!hasBackbutton"></ion-menu-button>
         </ion-buttons>
 
         <ion-title *ngIf="!title">
