@@ -1,0 +1,43 @@
+<custom-header *ngIf="apiResponsePrototype" [title]="apiResponsePrototype.name + 'for' + this.month "></custom-header>
+<ion-content fullscreen>
+    <ion-list lines="none">
+        <custom-list-element *ngFor="let author of authorPrototype">
+            <div id="authorCardHeader">
+                <span *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
+                    <ion-badge color="dark">
+                        {{ termIndex.term + ': ' + termIndex.highlights.length }}
+                    </ion-badge>
+                    &nbsp;
+                </span>
+                <h1 no-padding no-margin><strong>{{ author.name }}</strong></h1>
+                <hr color="tertiary">
+            </div>
+            <div id="authorDetails">
+                <ion-grid>
+                    <ion-row *ngIf="author.latestCountry">
+                        <ion-col><strong>{{ author.latestCountry }}</strong> based.</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="author.latestInstitution">
+                        <ion-col> From <strong>{{ author.latestInstitution }}</strong></ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="author.npapers">
+                        <ion-col><strong>{{ author.npapers }}</strong> total publications.</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="author.lastAuthorCount">
+                        <ion-col><strong>{{ author.lastAuthorCount }}</strong> times as last author</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="author.firstAuthorCount">
+                        <ion-col><strong>{{ author.firstAuthorCount }}</strong> times as first author</ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <div id="papers" *ngFor="let paper of getPapersForEachAuthor(author)">
+                <ion-card>
+                    <ion-item *ngIf="paper" (click)="openPublication(paper.link)">
+                        <h5>{{ paper.title }}</h5>
+                    </ion-item>
+                </ion-card>
+            </div>
+        </custom-list-element>
+    </ion-list>
+</ion-content>

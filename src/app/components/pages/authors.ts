@@ -4,20 +4,22 @@ import { AuthorPrototype } from '../../domain/author/prototype';
 import { NewsFeedPrototype } from '../../domain/newsFeed/prototype';
 import { TermIndexPrototype } from '../../domain/termIndex/prototype';
 import { PapersPrototype } from '../../domain/papers/prototype';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-list',
-    templateUrl: '../../templates/pages/list.html'
+    selector: 'app-authors',
+    templateUrl: '../../templates/pages/authors.html'
 })
-class List implements OnInit {
+class Authors implements OnInit {
 
+    public authorPrototype: AuthorPrototype;
     private month = '06';
     private year = '2019';
-    public authorPrototype: AuthorPrototype;
     private apiResponsePrototype: NewsFeedPrototype;
 
     public constructor(
-        private newsFeedService: NewsFeedService
+        private newsFeedService: NewsFeedService,
+        private router: Router
     ) {
     }
 
@@ -25,7 +27,7 @@ class List implements OnInit {
         this.newsFeedService.getAuthors('ac').subscribe(
             (apiResponsePrototype: NewsFeedPrototype) => {
                 this.apiResponsePrototype = apiResponsePrototype;
-                this.authorPrototype  = apiResponsePrototype.authors;
+                this.authorPrototype = apiResponsePrototype.authors;
             }
         );
     }
@@ -61,11 +63,15 @@ class List implements OnInit {
                 }
             );
 
-            return filteredIndexTerms.sort( (a, b) => {
+            return filteredIndexTerms.sort((a, b) => {
                 return b.highlights.length - a.highlights.length;
             });
         }
     }
+
+    public openPublication(publicationUrl: string): void {
+        this.router.navigate([`publication`, { link: publicationUrl }]);
+    }
 }
 
-export { List as ListPage };
+export { Authors as AuthorsPage };

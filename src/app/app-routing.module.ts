@@ -2,14 +2,26 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'list', pathMatch: 'full' },
-  { path: 'list', loadChildren: './modules/pages/list#ListModule'},
+    {
+        path: '',
+        redirectTo: 'authors',
+        pathMatch: 'full'
+    },
+    {
+        path: 'authors',
+        loadChildren: './modules/pages/authors#AuthorsModule'
+    },
+    {
+        path: 'publication',
+        loadChildren: './modules/pages/publication#PublicationModule'
+    }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes)
+    ],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

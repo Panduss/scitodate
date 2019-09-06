@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { ListPage } from '../../components/pages/list';
+import { AuthorsPage } from '../../components/pages/authors';
 import { RouterModule, Routes } from '@angular/router';
 import { ListElementModule } from '../components/listElement';
 import { HeaderModule } from '../components/header';
 
 const routes: Routes = [{
      path: '',
-     component: ListPage
+     component: AuthorsPage
  }];
 @NgModule({
     imports: [
@@ -19,9 +19,8 @@ const routes: Routes = [{
         HeaderModule
     ],
     declarations: [
-        ListPage
+        AuthorsPage
     ]
 })
-export class ListModule {
+export class AuthorsModule {
 }
-
