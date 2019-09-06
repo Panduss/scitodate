@@ -1,28 +1,29 @@
 <custom-header *ngIf="apiResponsePrototype" [title]="apiResponsePrototype.name"></custom-header>
 <ion-content fullscreen>
     <ion-list lines="none">
-
         <custom-list-element *ngFor="let author of authorPrototype">
+            <div id="authorName">
+                <h1><strong>{{ author.name }}</strong></h1>
+            </div>
             <div id="authorInfo">
-                <h1>{{ author.name }}
-                </h1>
-                <br />
-                <ion-badge color="dark" *ngIf="author.latestCountry">
-                    {{ author.latestCountry }}
-                </ion-badge>
+                <h5 *ngIf="author.latestCountry">Country: {{ author.latestCountry }}</h5>
+                <h5 *ngIf="author.latestInstitution">Institution: {{ author.latestInstitution }}</h5>
+                <h5 *ngIf="author.npapers">Total publications: {{ author.npapers }}</h5>
+                <h5 *ngIf="author.lastAuthorCount">Last author: {{ author.lastAuthorCount }}</h5>
+                <h5 *ngIf="author.firstAuthorCount">First Author: {{ author.firstAuthorCount }}</h5>
             </div>
             <div id="badges">
                 <span *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
-                    <ion-badge
+                    <ion-badge color="dark"
                     >{{ termIndex.term + ': ' + termIndex.highlights.length }}
                     </ion-badge>
                     &nbsp;
                 </span>
             </div>
             <div id="paperTitle" *ngFor="let paper of getPapersForEachAuthor(author)">
-                <ion-item>
-                    <p *ngIf="paper">{{ paper.title }}</p>
-                </ion-item>
+            <ion-item>
+            <p *ngIf="paper">{{ paper.title }}</p>
+            </ion-item>
             </div>
         </custom-list-element>
     </ion-list>

@@ -1,17 +1,22 @@
-<ion-card padding>
+<ion-card no-padding margin>
     <ion-grid no-padding margin>
         <ion-row class="paper-term-indexes">
             <ion-col>
                 <ng-content select="[id=badges]"></ng-content>
             </ion-col>
         </ion-row>
+        <ion-row>
+            <ion-col>
+                <ng-content select="[id=authorName]"></ng-content>
+            </ion-col>
+        </ion-row>
         <ion-row no-padding no-margin>
-            <ion-col no-padding no-margin class="author-name" size="4">
+            <ion-col no-padding no-margin class="author-name" size="5">
                 <ion-row>
                     <ng-content select="[id=authorInfo]"></ng-content>
                 </ion-row>
             </ion-col>
-            <ion-col no-padding no-margin size="8">
+            <ion-col no-padding no-margin size="7">
                 <ion-row class="paper-details">
                     <ng-content select="[id=paperTitle]"></ng-content>
                 </ion-row>
