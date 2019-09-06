@@ -1,18 +1,28 @@
-<custom-header *ngIf="apiResponsePrototype" [title]="apiResponsePrototype.name + 'for' + this.month "></custom-header>
+<custom-header *ngIf="apiResponsePrototype" [title]="apiResponsePrototype.name"></custom-header>
 <ion-content fullscreen>
     <ion-list lines="none">
         <custom-list-element *ngFor="let author of authorPrototype">
             <div id="authorCardHeader">
-                <span *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
-                    <ion-badge color="dark">
-                        {{ termIndex.term + ': ' + termIndex.highlights.length }}
-                    </ion-badge>
-                    &nbsp;
-                </span>
-                <h1 no-padding no-margin><strong>{{ author.name }}</strong></h1>
+                <ion-grid no-padding>
+                    <ion-row justify-content-between>
+                        <ion-col no-padding no-margin  size="auto">
+                            <h1 no-padding no-margin><strong>{{ author.name }}</strong></h1>
+                        </ion-col>
+                        <ion-col no-padding no-margin size="auto" align-self-end>
+                            <span class="badges-item" *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
+                                <ion-badge color="light">
+                                    {{ termIndex.term + ': ' + termIndex.highlights.length }}
+                                </ion-badge>
+                                &nbsp;
+                            </span>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
                 <hr color="tertiary">
             </div>
             <div id="authorDetails">
+                <h3>Author's details</h3>
+                <hr color="dark">
                 <ion-grid>
                     <ion-row *ngIf="author.latestCountry">
                         <ion-col><strong>{{ author.latestCountry }}</strong> based.</ion-col>
@@ -31,12 +41,15 @@
                     </ion-row>
                 </ion-grid>
             </div>
-            <div id="papers" *ngFor="let paper of getPapersForEachAuthor(author)">
-                <ion-card>
+
+            <div id="papers">
+                <h3>Publications </h3>
+                <hr color="medium">
+                <div *ngFor="let paper of getPapersForEachAuthor(author)">
                     <ion-item *ngIf="paper" (click)="openPublication(paper.link)">
-                        <h5>{{ paper.title }}</h5>
+                        <h5 class="link">{{ paper.title }}</h5>
                     </ion-item>
-                </ion-card>
+                </div>
             </div>
         </custom-list-element>
     </ion-list>

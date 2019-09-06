@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-authors',
-    templateUrl: '../../templates/pages/authors.html'
+    templateUrl: '../../templates/pages/authors.html',
+    styleUrls: ['../../styles/pages/authors.scss']
 })
 class Authors implements OnInit {
 
