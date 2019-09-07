@@ -38,9 +38,9 @@ class Menu implements OnInit {
         );
     }
 
-    public async logout(): Promise<void> {
-        await this.firebase.auth.signOut();
-        await this.router.navigate(['login']);
+    public logout(): void {
+        this.firebase.auth.signOut();
+        this.router.navigate(['login']);
     }
 }
 

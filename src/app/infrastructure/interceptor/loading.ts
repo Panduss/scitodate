@@ -25,6 +25,7 @@ class Loading implements HttpInterceptor {
         this.loader = await this.loadingController.create({
             spinner: 'circles',
             cssClass: 'loading-controller',
+            translucent: true,
             animated: true,
             duration: 3000,
         });
