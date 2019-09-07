@@ -11,6 +11,15 @@ const routes: Routes = [
         component: MenuComponent,
         children: [
             {
+                path: '',
+                redirectTo: 'welcome',
+                pathMatch: 'full'
+            },
+            {
+                path: 'welcome',
+                loadChildren: '../pages/welcome#WelcomeModule'
+            },
+            {
                 path: 'authors/:id',
                 loadChildren: '../pages/authors#AuthorsModule'
             }

@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Publication implements OnInit, OnDestroy {
 
-    public safeLink: SafeUrl;
+    public safeLink?: SafeUrl;
     private paramSubscription: Subscription = new Subscription();
 
     public constructor(
@@ -19,8 +19,11 @@ export class Publication implements OnInit, OnDestroy {
     ) {
         this.paramSubscription = this.route.paramMap.subscribe(
             (params) => {
-                if (params.get('link')) {
-                    this.safeLink = this.sanitizer.bypassSecurityTrustResourceUrl(params.get('link'));
+
+                const link = params.get('link');
+
+                if (link) {
+                    this.safeLink = this.sanitizer.bypassSecurityTrustResourceUrl(link);
                 }
             }
         );

@@ -1,12 +1,14 @@
 import { MatchedTermsPrototype } from '../matchedTerms/prototype';
 import { PapersPrototype } from '../papers/prototype';
+import { MatchedSegmentsPrototype } from '../machedSegments/prototype';
+import { NPaperByYearPrototype } from '../npapersByYear/prototype';
 
 interface Prototype {
     id: string;
     name: string;
     firstNames: string;
     firstAuthorCount: number;
-    firstAuthorMatchedCount;
+    firstAuthorMatchedCount: number;
     lastAuthorCount: number;
     lastAuthorMatchedCount: number;
     latestAffStr: string;
@@ -15,10 +17,10 @@ interface Prototype {
     latestInstAffstr: string;
     latestInstitution: string;
     latestPaperDate: string;
-    matchedSegments: {};
+    matchedSegments: MatchedSegmentsPrototype;
     matchedTerms: MatchedTermsPrototype;
     npapers: number;
-    npapersByYears: {};
+    npapersByYears: NPaperByYearPrototype;
     npapersMatched: number;
     papers: Array<PapersPrototype>;
     score: number;

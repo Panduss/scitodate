@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, RouterEvent } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 
 @Component({
     selector: 'app-menu',
@@ -7,6 +7,7 @@ import { Router, RouterEvent } from '@angular/router';
     styleUrls: ['../../styles/components/menu.scss']
 })
 class Menu implements OnInit {
+
     public selectedPath = '';
 
     public pages = [
@@ -26,11 +27,13 @@ class Menu implements OnInit {
     }
 
     ngOnInit() {
-        this.router.events.subscribe((event: RouterEvent) => {
-            if (event && event.url) {
-                this.selectedPath = event.url;
+        this.router.events.subscribe(
+            (event) => {
+                if (event instanceof NavigationEnd) {
+                    this.selectedPath = event.urlAfterRedirects;
+                }
             }
-        });
+        );
     }
 }
 

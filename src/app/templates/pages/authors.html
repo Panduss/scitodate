@@ -2,36 +2,27 @@
 <ion-content fullscreen>
     <ion-list lines="none">
         <custom-list-element *ngFor="let author of authorPrototype">
-            <div id="authorCardHeader">
-                <ion-grid no-padding>
-                    <ion-row justify-content-between>
-                        <ion-col no-padding no-margin  size="auto">
-                            <h1 no-padding no-margin><strong>{{ author.name }}</strong></h1>
-                        </ion-col>
-                        <ion-col no-padding no-margin size="auto" align-self-end>
-                            <span class="badges-item" *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
-                                <ion-badge color="light">
-                                    {{ termIndex.term + ': ' + termIndex.highlights.length }}
-                                </ion-badge>
-                                &nbsp;
-                            </span>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-                <hr color="tertiary">
+            <div id="authorName">
+                <h1 no-padding no-margin><strong>{{ author.name }}</strong></h1>
+            </div>
+            <div id="termIndexes">
+                <span class="badges-item" *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
+                    <ion-badge color="light">
+                        {{ termIndex.term + ': ' + termIndex.highlights.length }}
+                    </ion-badge>
+                    &nbsp;
+                </span>
             </div>
             <div id="authorDetails">
-                <h3>Author's details</h3>
-                <hr color="dark">
                 <ion-grid>
                     <ion-row *ngIf="author.latestCountry">
-                        <ion-col><strong>{{ author.latestCountry }}</strong> based.</ion-col>
+                        <ion-col><strong>{{ author.latestCountry }}</strong> based</ion-col>
                     </ion-row>
                     <ion-row *ngIf="author.latestInstitution">
                         <ion-col> From <strong>{{ author.latestInstitution }}</strong></ion-col>
                     </ion-row>
                     <ion-row *ngIf="author.npapers">
-                        <ion-col><strong>{{ author.npapers }}</strong> total publications.</ion-col>
+                        <ion-col><strong>{{ author.npapers }}</strong> total publications</ion-col>
                     </ion-row>
                     <ion-row *ngIf="author.lastAuthorCount">
                         <ion-col><strong>{{ author.lastAuthorCount }}</strong> times as last author</ion-col>
@@ -47,7 +38,7 @@
                 <hr color="medium">
                 <div *ngFor="let paper of getPapersForEachAuthor(author)">
                     <ion-item *ngIf="paper.title" (click)="openPublication(paper.link)">
-                        <h5 class="link">{{ paper.title }}</h5>
+                        <p class="link">{{ paper.title }}</p>
                     </ion-item>
                 </div>
             </div>
