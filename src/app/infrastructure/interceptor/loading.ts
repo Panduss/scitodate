@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 class Loading implements HttpInterceptor {
-    private loader: HTMLIonLoadingElement;
+    private loader?: HTMLIonLoadingElement;
 
     constructor(
         private loadingController: LoadingController
@@ -26,13 +26,16 @@ class Loading implements HttpInterceptor {
             spinner: 'circles',
             cssClass: 'loading-controller',
             translucent: true,
-            animated: true
+            animated: true,
+            duration: 3000,
         });
         await this.loader.present();
     }
 
     private async dismissLoader(): Promise<void> {
-        await this.loader.dismiss();
+        if (this.loader) {
+            await this.loader.dismiss();
+        }
     }
 }
 

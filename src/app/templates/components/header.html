@@ -1,12 +1,12 @@
 <ion-header>
-    <ion-toolbar color='primary'>
+    <ion-toolbar [color]="toolbarColor ? toolbarColor : 'primary'">
 
         <ion-buttons slot="start" text-center>
-            <ion-back-button  *ngIf="hasBackbutton" defaultHref="" text=""></ion-back-button>
-            <ion-menu-button  *ngIf="!hasBackbutton"></ion-menu-button>
+            <ion-back-button  *ngIf="hasBackButton" defaultHref="" text=""></ion-back-button>
+            <ion-menu-button  *ngIf="!hasBackButton"></ion-menu-button>
         </ion-buttons>
 
-        <ion-title *ngIf="!title">
+        <ion-title *ngIf="!title && hasLogo">
             <img src="../../../assets/scitodate-logo.png" class="company-logo" />
         </ion-title>
 

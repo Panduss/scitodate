@@ -13,10 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 class Authors implements OnInit {
 
-    public authorPrototype: AuthorPrototype;
-    private month = '06';
-    private year = '2019';
-    private apiResponsePrototype: NewsFeedPrototype;
+    public authorPrototype?: AuthorPrototype;
+    private apiResponsePrototype?: NewsFeedPrototype;
+    private date = {
+        year: '2019',
+        month: '06'
+    };
 
     public constructor(
         private newsFeedService: NewsFeedService,
@@ -28,35 +30,46 @@ class Authors implements OnInit {
     public ngOnInit() {
         this.route.paramMap.subscribe(
             (params) => {
-                if (params.has('id')) {
-                    this.newsFeedService.getAuthors(params.get('id')).subscribe(
+
+                const id = params.get('id');
+
+                if (id) {
+                    this.newsFeedService.getAuthors(id).subscribe(
                         (apiResponsePrototype: NewsFeedPrototype) => {
                             this.apiResponsePrototype = apiResponsePrototype;
                             this.authorPrototype = apiResponsePrototype.authors;
+                            console.log(this.authorPrototype);
                         }
                     );
                 }
-            });
+            }, (error) => {
+                alert('An error occurred, please try again later!');
+                throw error;
+            }
+        );
     }
 
-    public getPapersForEachAuthor(authorPrototype: AuthorPrototype): Array<PapersPrototype> {
+    public getPapersForEachAuthor(authorPrototype: AuthorPrototype): Array<PapersPrototype> | null {
+
         const papers: Array<PapersPrototype> = authorPrototype.papers;
 
         if (papers) {
 
-            const dateFilter = this.year + '-' + this.month;
-            const paper = papers.filter((item: PapersPrototype) => {
+            const dateFilter = this.date.year + '-' + this.date.month;
+            return papers.filter((item: PapersPrototype) => {
 
                 if (item.date) {
                     return (item.date.indexOf(dateFilter) !== -1);
                 }
             });
+        } else {
 
-            return paper;
+            return null;
         }
+
     }
 
-    public getTermIndexesForEachAuthor(authorPrototype: AuthorPrototype): Array<TermIndexPrototype> {
+    public getTermIndexesForEachAuthor(authorPrototype: AuthorPrototype): Array<TermIndexPrototype>|null {
         const termIndex: Array<TermIndexPrototype> = Object.values(authorPrototype.matchedTerms.termIndex);
 
         if (termIndex) {
@@ -73,11 +86,14 @@ class Authors implements OnInit {
             return filteredIndexTerms.sort((a, b) => {
                 return b.highlights.length - a.highlights.length;
             });
+        } else {
+
+            return null;
         }
     }
 
     public openPublication(publicationUrl: string): void {
-        this.router.navigate([`publication`, { link: publicationUrl }]);
+        this.router.navigate(['publication', { link: publicationUrl }]);
     }
 }
 

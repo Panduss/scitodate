@@ -6,7 +6,9 @@ import { Component, Input } from '@angular/core';
 })
 class Header {
     @Input() public title?: string;
-    @Input() public hasBackbutton?: boolean;
+    @Input() public hasBackButton?: boolean;
+    @Input() public toolbarColor?: string;
+    @Input() public hasLogo?: boolean;
 }
 
 export { Header as HeaderComponent };
