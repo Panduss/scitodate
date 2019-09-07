@@ -1,0 +1,27 @@
+.active-item {
+  border-left: 8px solid var(--ion-color-primary);
+  --color-hover: var(--ion-color-light);
+}
+
+.menu-item {
+  --background: var(--ion-color-dark);
+  color: var(--ion-color-light-font);
+  --color-hover: var(--ion-color-light-font);
+}
+
+.menu-content {
+  --background: var(--ion-color-dark);
+
+}
+
+.menu-list {
+  background: var(--ion-color-dark);
+}
+
+.menu-logo {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align:center;
+}
