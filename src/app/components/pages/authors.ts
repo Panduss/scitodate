@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 class Authors implements OnInit {
 
     public authorPrototype?: AuthorPrototype;
+    public title?: string;
     private apiResponsePrototype?: NewsFeedPrototype;
     private date = {
         year: '2019',
@@ -37,6 +38,7 @@ class Authors implements OnInit {
                     this.newsFeedService.getAuthors(id).subscribe(
                         (apiResponsePrototype: NewsFeedPrototype) => {
                             this.apiResponsePrototype = apiResponsePrototype;
+                            this.title = this.apiResponsePrototype.name;
                             this.authorPrototype = apiResponsePrototype.authors;
                         }
                     );
@@ -68,7 +70,7 @@ class Authors implements OnInit {
 
     }
 
-    public getTermIndexesForEachAuthor(authorPrototype: AuthorPrototype): Array<TermIndexPrototype>|null {
+    public getTermIndexesForEachAuthor(authorPrototype: AuthorPrototype): Array<TermIndexPrototype> | null {
         const termIndex: Array<TermIndexPrototype> = Object.values(authorPrototype.matchedTerms.termIndex);
 
         if (termIndex) {
