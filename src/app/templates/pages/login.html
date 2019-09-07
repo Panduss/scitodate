@@ -7,14 +7,12 @@
             <h3>
                 Please login to continue.
             </h3>
+            <br/>
             <div>
                 <form [formGroup]="form" (ngSubmit)="login()">
                     <ion-item lines="none" no-margin no-padding class="input-fields"
                               [ngClass]="{ 'is-invalid': submitted && getForm().email.errors }">
-                        <ion-input [clearInput]=true placeholder="Email"
-                                   type="email"
-                                   formControlName="email"
-                        ></ion-input>
+                        <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
                     </ion-item>
                     <div *ngIf="(submitted && getForm().email.errors)">
                         <div class="error-show" *ngIf="getForm().email.hasError('required')">
@@ -26,10 +24,7 @@
                     </div>
                     <ion-item lines="none" no-margin no-padding class="input-fields"
                               [ngClass]="{ 'is-invalid': submitted && getForm().password.errors }">
-                        <ion-input [clearInput]=true placeholder="Password"
-                                   [attr.type]="showPassword? 'text' : 'password'"
-                                   formControlName="password"
-                        ></ion-input>
+                        <ion-input placeholder="Password" formControlName="password"></ion-input>
                     </ion-item>
                     <div *ngIf="(submitted && getForm().password.errors)">
                         <div class="error-show" *ngIf="getForm().password.hasError('required')">
@@ -39,19 +34,10 @@
                             Password is too short
                         </div>
                     </div>
-                    <div class="error-show" *ngIf="signUpError">
-                        <div class="error-show" *ngIf="signUpError === 'wrongPassword'">
-                            Email or password is not correct
-                        </div>
-
-                        <div class="error-show" *ngIf="signUpError === 'tooManyRequests'">
-                            Too many requests
-                        </div>
-
-                        <div class="error-show" lines="none" *ngIf="signUpError === 'invalidEmail'">
-                            Invalid email
-                        </div>
+                    <div class="error-show" *ngIf="errorMessage">
+                        {{ errorMessage }}
                     </div>
+                    <br/>
                     <ion-button margin-bottom expand="block" icon-left color="primary" type="submit">
                         Login
                     </ion-button>

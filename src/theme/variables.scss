@@ -108,6 +108,15 @@
   --ion-color-link: #1A0DAB;
   --ion-color-dark-font: #1F1A3C;
   --ion-color-light-font: #ffffff;
+  --ion-color-field: #e2e2e2;
+
+  .input-fields {
+    --background: var(--ion-color-field);
+    --padding-start: 10px;
+    --padding-end: 10px;
+    margin-bottom: 10px;
+    --border-radius: 0;
+  }
 
   ion-list {
     background: var(--ion-color-app-background);
@@ -170,5 +179,15 @@
       --spinner-color: var(--ion-color-primary);
       box-shadow: none;
     }
+  }
+
+  .is-invalid {
+    border: solid 1px var(--ion-color-danger);
+  }
+
+  .error-show {
+    color: var(--ion-color-danger) !important;
+    margin-bottom: 5px;
+    text-align: center;
   }
 }

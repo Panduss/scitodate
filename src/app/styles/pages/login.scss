@@ -8,8 +8,7 @@
 
 .login-card {
   margin: 100px auto auto 100px;
-  width: 40%;
-  height: 50%;
+  max-width: 350px;
   --background: var(--ion-color-primary-contrast);
   color: var(--ion-color-dark-font);
 }

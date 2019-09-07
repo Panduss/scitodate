@@ -10,8 +10,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NewsFeedService } from './domain/newsFeed/service';
 import { CargoInterceptor } from './infrastructure/interceptor/cargo';
 import { LoadingInterceptor } from './infrastructure/interceptor/loading';
-import { AppCustomConfig } from '../config/general';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { AngularFireModule } from '@angular/fire';
         IonicModule.forRoot(),
         AppRoutingModule,
         HttpClientModule,
-        AngularFireModule.initializeApp(AppCustomConfig.firebaseConfig)
+        AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
     providers: [
         StatusBar,
@@ -41,6 +42,7 @@ import { AngularFireModule } from '@angular/fire';
             useClass: LoadingInterceptor,
             multi: true
         },
+        AngularFireAuth
     ],
     bootstrap: [AppComponent]
 })

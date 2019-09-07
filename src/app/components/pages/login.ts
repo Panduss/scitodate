@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebaseApp from 'firebase';
 
 @Component({
     selector: 'app-login',
@@ -13,7 +14,7 @@ class Login {
     public form: FormGroup;
     public submitted = false;
     public showPassword = false;
-    public signUpError = '';
+    public errorMessage = '';
 
     public constructor(
         private formBuilder: FormBuilder,
@@ -46,11 +47,15 @@ class Login {
         }
 
         this.firebase.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password).then(
-            (res: any) => {
+            () => {
                 this.router.navigate(['/menu']);
             },
-            (error: Error) => {
-                alert(`Something went wrong: ${error.message}`);
+            (error: firebaseApp.auth.Error) => {
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                   this.errorMessage = 'Email or password is incorrect.';
+                } else {
+                    this.errorMessage = 'Something went wrong, please try again later.';
+                }
             }
         );
     }
