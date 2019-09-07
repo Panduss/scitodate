@@ -1,10 +1,10 @@
 .welcome-page-content {
-  --background: url('../../../assets/img/banner-dna.png') no-repeat right center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+   --background: url('../../../assets/img/banner-dna.png') no-repeat right center;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
 
 .welcome-page-image {
   height: 612.929px;
@@ -12,12 +12,10 @@
 
 .welcome-page-message {
   position:fixed;
-  top: 50%;
-  left: 50%;
   width: 30em;
   height: 30em;
-  margin-top: -15em;
-  margin-left: -30em;
+  top: 100px;
+  left: 0;
   background-color: rgba(255, 255, 255, 0);
   text-align: center;
   color: var(--ion-color-light-font);

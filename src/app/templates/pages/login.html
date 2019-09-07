@@ -1,0 +1,48 @@
+<ion-content class="login-page-content" fullscreen>
+    <ion-card class="login-card">
+        <ion-card-content>
+            <h1>
+                Welcome!
+            </h1>
+            <h3>
+                Please login to continue.
+            </h3>
+            <br/>
+            <div>
+                <form [formGroup]="form" (ngSubmit)="login()">
+                    <ion-item lines="none" no-margin no-padding class="input-fields"
+                              [ngClass]="{ 'is-invalid': submitted && getForm().email.errors }">
+                        <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
+                    </ion-item>
+                    <div *ngIf="(submitted && getForm().email.errors)">
+                        <div class="error-show" *ngIf="getForm().email.hasError('required')">
+                            This field is required
+                        </div>
+                        <div class="error-show" *ngIf="getForm().email.hasError('email')">
+                            Invalid email
+                        </div>
+                    </div>
+                    <ion-item lines="none" no-margin no-padding class="input-fields"
+                              [ngClass]="{ 'is-invalid': submitted && getForm().password.errors }">
+                        <ion-input placeholder="Password" formControlName="password"></ion-input>
+                    </ion-item>
+                    <div *ngIf="(submitted && getForm().password.errors)">
+                        <div class="error-show" *ngIf="getForm().password.hasError('required')">
+                            Required field
+                        </div>
+                        <div class="error-show" *ngIf="getForm().password.hasError('minlength')">
+                            Password is too short
+                        </div>
+                    </div>
+                    <div class="error-show" *ngIf="errorMessage">
+                        {{ errorMessage }}
+                    </div>
+                    <br/>
+                    <ion-button margin-bottom expand="block" icon-left color="primary" type="submit">
+                        Login
+                    </ion-button>
+                </form>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
