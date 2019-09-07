@@ -156,4 +156,13 @@
     color: var(--ion-color-link);
     text-decoration: var(--ion-color-link) underline;
   }
+
+  .loading-controller {
+
+    .loading-wrapper {
+      background: transparent;
+      --spinner-color: var(--ion-color-primary);
+      box-shadow: none;
+    }
+  }
 }

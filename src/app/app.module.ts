@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NewsFeedService } from './domain/newsFeed/service';
 import { CargoInterceptor } from './infrastructure/interceptor/cargo';
+import { LoadingInterceptor } from './infrastructure/interceptor/loading';
 
 @NgModule({
     declarations: [AppComponent],
@@ -31,7 +32,12 @@ import { CargoInterceptor } from './infrastructure/interceptor/cargo';
             provide: HTTP_INTERCEPTORS,
             useClass: CargoInterceptor,
             multi: true
-        }
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoadingInterceptor,
+            multi: true
+        },
     ],
     bootstrap: [AppComponent]
 })
