@@ -1,7 +1,3 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
-
-/** Ionic CSS Variables **/
 .theme-custom {
 
   @at-root {
@@ -112,8 +108,6 @@
   --ion-color-link: #1A0DAB;
   --ion-color-dark-font: #1F1A3C;
   --ion-color-light-font: #ffffff;
-  $darkFontColor: #1F1A3C;
-  $lightFontColor: #ffffff;
 
   ion-list {
     background: var(--ion-color-app-background);
@@ -131,16 +125,17 @@
 
   .company-logo {
     max-width: 150px;
-    padding-right: 10px;
+    margin: auto auto;
+    padding: 0;
+    display: block;
   }
 
   ion-title {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 2px 90px 2px;
     width: 100%;
-    height: 100%;
+    height: 56px;
     text-align: center;
     color: var(--ion-color-light-font);
   }
@@ -153,9 +148,12 @@
     color: var(--ion-color-dark-font);
   }
 
+  ion-menu {
+    max-width: 300px;
+  }
+
   .link {
     color: var(--ion-color-link);
     text-decoration: var(--ion-color-link) underline;
   }
 }
-

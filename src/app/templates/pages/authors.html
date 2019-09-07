@@ -43,10 +43,10 @@
             </div>
 
             <div id="papers">
-                <h3>Publications </h3>
+                <h3>Publications</h3>
                 <hr color="medium">
                 <div *ngFor="let paper of getPapersForEachAuthor(author)">
-                    <ion-item *ngIf="paper" (click)="openPublication(paper.link)">
+                    <ion-item *ngIf="paper.title" (click)="openPublication(paper.link)">
                         <h5 class="link">{{ paper.title }}</h5>
                     </ion-item>
                 </div>

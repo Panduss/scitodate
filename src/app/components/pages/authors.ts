@@ -4,7 +4,7 @@ import { AuthorPrototype } from '../../domain/author/prototype';
 import { NewsFeedPrototype } from '../../domain/newsFeed/prototype';
 import { TermIndexPrototype } from '../../domain/termIndex/prototype';
 import { PapersPrototype } from '../../domain/papers/prototype';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-authors',
@@ -20,17 +20,23 @@ class Authors implements OnInit {
 
     public constructor(
         private newsFeedService: NewsFeedService,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) {
     }
 
     public ngOnInit() {
-        this.newsFeedService.getAuthors('ac').subscribe(
-            (apiResponsePrototype: NewsFeedPrototype) => {
-                this.apiResponsePrototype = apiResponsePrototype;
-                this.authorPrototype = apiResponsePrototype.authors;
-            }
-        );
+        this.route.paramMap.subscribe(
+            (params) => {
+                if (params.has('id')) {
+                    this.newsFeedService.getAuthors(params.get('id')).subscribe(
+                        (apiResponsePrototype: NewsFeedPrototype) => {
+                            this.apiResponsePrototype = apiResponsePrototype;
+                            this.authorPrototype = apiResponsePrototype.authors;
+                        }
+                    );
+                }
+            });
     }
 
     public getPapersForEachAuthor(authorPrototype: AuthorPrototype): Array<PapersPrototype> {

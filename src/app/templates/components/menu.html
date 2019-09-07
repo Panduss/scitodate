@@ -1,0 +1,23 @@
+<ion-split-pane>
+    <ion-menu contentId="content">
+        <ion-header>
+            <ion-toolbar color="dark">
+                <ion-title class="menu-logo">
+                    <img src="../../../assets/scitodate-logo.png" class="menu-image company-logo" />
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="menu-content">
+            <ion-list class="menu-list">
+                <ion-menu-toggle [autoHide]="false" *ngFor="let page of pages">
+                    <ion-item [routerLink]="page.url" routerDirection="root" class="menu-item" [class.active-item]="selectedPath.startsWith(page.url)">
+                        <ion-label>
+                            {{page.title}}
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>

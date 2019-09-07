@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'authors',
+        redirectTo: 'menu',
         pathMatch: 'full'
     },
     {
-        path: 'authors',
-        loadChildren: './modules/pages/authors#AuthorsModule'
+        path: 'menu',
+        loadChildren: './modules/components/menu#MenuModule'
     },
     {
         path: 'publication',
