@@ -38,7 +38,6 @@ class Authors implements OnInit {
                         (apiResponsePrototype: NewsFeedPrototype) => {
                             this.apiResponsePrototype = apiResponsePrototype;
                             this.authorPrototype = apiResponsePrototype.authors;
-                            console.log(this.authorPrototype);
                         }
                     );
                 }
