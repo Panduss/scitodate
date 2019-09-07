@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+class AuthGuard implements CanActivate {
 
     constructor(
         private router: Router,
@@ -27,3 +27,5 @@ export class AuthGuard implements CanActivate {
         );
     }
 }
+
+export { AuthGuard };

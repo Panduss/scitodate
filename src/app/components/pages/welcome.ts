@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-welcome',
     templateUrl: '../../templates/pages/welcome.html',
-    styleUrls: [ '../../styles/pages/welcome.scss' ]
+    styleUrls: ['../../styles/pages/welcome.scss']
 })
 class Welcome {
 }
