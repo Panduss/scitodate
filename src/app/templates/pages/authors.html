@@ -1,4 +1,4 @@
-<custom-header *ngIf="apiResponsePrototype" [title]="apiResponsePrototype.name"></custom-header>
+<custom-header *ngIf="title" [title]="title"></custom-header>
 <ion-content fullscreen>
     <ion-list lines="none">
         <custom-list-element *ngFor="let author of authorPrototype">
