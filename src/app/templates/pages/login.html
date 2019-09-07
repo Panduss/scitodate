@@ -1,5 +1,62 @@
-<ion-content fullscreen>
+<ion-content class="login-page-content" fullscreen>
     <ion-card class="login-card">
-        hello
+        <ion-card-content>
+            <h1>
+                Welcome!
+            </h1>
+            <h3>
+                Please login to continue.
+            </h3>
+            <div>
+                <form [formGroup]="form" (ngSubmit)="login()">
+                    <ion-item lines="none" no-margin no-padding class="input-fields"
+                              [ngClass]="{ 'is-invalid': submitted && getForm().email.errors }">
+                        <ion-input [clearInput]=true placeholder="Email"
+                                   type="email"
+                                   formControlName="email"
+                        ></ion-input>
+                    </ion-item>
+                    <div *ngIf="(submitted && getForm().email.errors)">
+                        <div class="error-show" *ngIf="getForm().email.hasError('required')">
+                            This field is required
+                        </div>
+                        <div class="error-show" *ngIf="getForm().email.hasError('email')">
+                            Invalid email
+                        </div>
+                    </div>
+                    <ion-item lines="none" no-margin no-padding class="input-fields"
+                              [ngClass]="{ 'is-invalid': submitted && getForm().password.errors }">
+                        <ion-input [clearInput]=true placeholder="Password"
+                                   [attr.type]="showPassword? 'text' : 'password'"
+                                   formControlName="password"
+                        ></ion-input>
+                    </ion-item>
+                    <div *ngIf="(submitted && getForm().password.errors)">
+                        <div class="error-show" *ngIf="getForm().password.hasError('required')">
+                            Required field
+                        </div>
+                        <div class="error-show" *ngIf="getForm().password.hasError('minlength')">
+                            Password is too short
+                        </div>
+                    </div>
+                    <div class="error-show" *ngIf="signUpError">
+                        <div class="error-show" *ngIf="signUpError === 'wrongPassword'">
+                            Email or password is not correct
+                        </div>
+
+                        <div class="error-show" *ngIf="signUpError === 'tooManyRequests'">
+                            Too many requests
+                        </div>
+
+                        <div class="error-show" lines="none" *ngIf="signUpError === 'invalidEmail'">
+                            Invalid email
+                        </div>
+                    </div>
+                    <ion-button margin-bottom expand="block" icon-left color="primary" type="submit">
+                        Login
+                    </ion-button>
+                </form>
+            </div>
+        </ion-card-content>
     </ion-card>
 </ion-content>

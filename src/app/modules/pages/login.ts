@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { LoginPage } from '../../components/pages/login';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 const routes: Routes = [{
     path: '',
@@ -12,7 +14,11 @@ const routes: Routes = [{
     imports: [
         CommonModule,
         IonicModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        ReactiveFormsModule
+    ],
+    providers: [
+        AngularFireAuth
     ],
     declarations: [
         LoginPage

@@ -10,6 +10,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NewsFeedService } from './domain/newsFeed/service';
 import { CargoInterceptor } from './infrastructure/interceptor/cargo';
 import { LoadingInterceptor } from './infrastructure/interceptor/loading';
+import { AppCustomConfig } from '../config/general';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
     declarations: [AppComponent],
@@ -18,7 +20,8 @@ import { LoadingInterceptor } from './infrastructure/interceptor/loading';
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        AngularFireModule.initializeApp(AppCustomConfig.firebaseConfig)
     ],
     providers: [
         StatusBar,
