@@ -10,7 +10,7 @@
             <br/>
             <div>
                 <form [formGroup]="form" (ngSubmit)="login()">
-                    <ion-item lines="none" no-margin no-padding class="input-fields"
+                    <ion-item lines="none" class="input-fields ion-no-padding ion-no-margin"
                               [ngClass]="{ 'is-invalid': submitted && getForm().email.errors }">
                         <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
                     </ion-item>
@@ -22,9 +22,9 @@
                             Invalid email
                         </div>
                     </div>
-                    <ion-item lines="none" no-margin no-padding class="input-fields"
+                    <ion-item lines="none" class="input-fields ion-no-padding ion-no-margin"
                               [ngClass]="{ 'is-invalid': submitted && getForm().password.errors }">
-                        <ion-input placeholder="Password" formControlName="password"></ion-input>
+                        <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
                     </ion-item>
                     <div *ngIf="(submitted && getForm().password.errors)">
                         <div class="error-show" *ngIf="getForm().password.hasError('required')">

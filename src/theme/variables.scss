@@ -133,6 +133,10 @@
     }
   }
 
+  hr {
+    width: 100%;
+  }
+
   .input-fields {
     --background: var(--ion-color-field);
     --padding-start: 10px;
@@ -181,7 +185,7 @@
   }
 
   ion-menu {
-    max-width: 300px;
+    max-width: 200px !important;
     border: none;
   }
 
