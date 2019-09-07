@@ -11,7 +11,7 @@ import { NewsFeedService } from './domain/newsFeed/service';
 import { CargoInterceptor } from './infrastructure/interceptor/cargo';
 import { LoadingInterceptor } from './infrastructure/interceptor/loading';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -20,9 +20,10 @@ import { environment } from '../environments/environment';
     imports: [
         BrowserModule,
         IonicModule.forRoot(),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
         AppRoutingModule,
-        HttpClientModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig)
+        HttpClientModule
     ],
     providers: [
         StatusBar,
