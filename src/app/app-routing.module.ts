@@ -5,7 +5,7 @@ import { AuthGuard } from './infrastructure/middleware/authGuard';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'menu',
         pathMatch: 'full'
     },
     {

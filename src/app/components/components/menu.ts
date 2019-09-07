@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
     selector: 'app-menu',
@@ -22,7 +23,8 @@ class Menu implements OnInit {
     ];
 
     public constructor(
-        private router: Router
+        private router: Router,
+        private firebase: AngularFireAuth
     ) {
     }
 
@@ -34,6 +36,11 @@ class Menu implements OnInit {
                 }
             }
         );
+    }
+
+    public async logout(): Promise<void> {
+        await this.firebase.auth.signOut();
+        await this.router.navigate(['login']);
     }
 }
 

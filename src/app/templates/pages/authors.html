@@ -3,7 +3,7 @@
     <ion-list lines="none">
         <custom-list-element *ngFor="let author of authorPrototype">
             <div id="authorName">
-                <h1 no-padding no-margin><strong>{{ author.name }}</strong></h1>
+                <h1 class="ion-no-padding ion-no-margin"><strong>{{ author.name }}</strong></h1>
             </div>
             <div id="termIndexes">
                 <span class="badges-item" *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
