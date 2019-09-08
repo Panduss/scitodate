@@ -198,6 +198,11 @@
     color: var(--ion-color-dark-font);
   }
 
+  ion-grid ion-row ion-col {
+    padding: 0;
+    margin: 0;
+  }
+
   ion-menu {
     border: none;
 
