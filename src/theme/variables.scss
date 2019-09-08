@@ -198,9 +198,13 @@
     color: var(--ion-color-dark-font);
   }
 
-  ion-grid ion-row ion-col {
-    padding: 0;
-    margin: 0;
+  ion-grid, ion-row, ion-col {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  p {
+    margin: 4px 0;
   }
 
   ion-menu {
@@ -216,7 +220,6 @@
   }
 
   .link {
-    margin: 6px;
     color: var(--ion-color-link);
     text-decoration: var(--ion-color-link) underline;
   }
