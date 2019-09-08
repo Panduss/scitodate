@@ -27,6 +27,7 @@
     "@ionic/angular": "^4.7.1",
     "core-js": "^2.5.4",
     "firebase": "^6.6.0",
+    "ngx-infinite-scroll": "^7.2.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.8.29"
   },
@@ -39,7 +40,7 @@
     "@angular/compiler": "~7.2.2",
     "@angular/compiler-cli": "~7.2.2",
     "@angular/language-service": "~7.2.2",
-    "@ionic/angular-toolkit": "~2.0.0",
+    "@ionic/angular-toolkit": "~1.5.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

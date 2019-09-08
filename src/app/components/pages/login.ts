@@ -47,6 +47,8 @@ class Login {
 
         this.firebase.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password).then(
             () => {
+                this.submitted = false;
+                this.errorMessage = '';
                 this.router.navigate(['/menu']);
             },
             (error: firebaseApp.auth.Error) => {

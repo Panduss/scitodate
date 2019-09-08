@@ -8,10 +8,10 @@ import 'rxjs/add/operator/map';
 class Cargo implements HttpInterceptor {
 
     public intercept(
-        req: HttpRequest<any>,
+        request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        return next.handle(req).map(
+        return next.handle(request).map(
             event => {
                 if (event instanceof HttpResponse && event.body && event.body.data) {
                     return event.clone({ body: event.body.data });

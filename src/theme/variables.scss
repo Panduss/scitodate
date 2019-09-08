@@ -118,7 +118,6 @@
     @media (max-width: 1100px) { @content; }
   }
 
-
   .login-card {
     max-width: 350px;
     --background: var(--ion-color-primary-contrast);
@@ -127,9 +126,24 @@
     @include for-desktop {
       margin: 100px auto auto 100px;
     }
+  }
+
+  .home-page-message {
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--ion-color-light-font);
+
+    @include for-desktop {
+      text-align: center;
+      position: fixed;
+      width: 30em;
+      height: 30em;
+      top: 100px;
+      left: 0;
+    }
 
     @include for-smaller-screen {
-      margin: 100px auto auto;
+      position: fixed;
+      margin: 30px auto auto 30px;
     }
   }
 
@@ -185,8 +199,11 @@
   }
 
   ion-menu {
-    max-width: 200px !important;
     border: none;
+
+    @include for-desktop {
+      max-width: 200px !important;
+    }
   }
 
   ion-split-pane {

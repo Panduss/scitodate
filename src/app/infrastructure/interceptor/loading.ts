@@ -12,10 +12,11 @@ class Loading implements HttpInterceptor {
     ) {
     }
 
-    public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
         this.createLoader();
 
-        return next.handle(req).map((event) => {
+        return next.handle(request).map((event) => {
             this.dismissLoader();
             return event;
         });

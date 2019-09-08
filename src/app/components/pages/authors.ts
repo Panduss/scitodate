@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NewsFeedService } from '../../domain/newsFeed/service';
 import { AuthorPrototype } from '../../domain/author/prototype';
 import { NewsFeedPrototype } from '../../domain/newsFeed/prototype';
@@ -28,7 +28,7 @@ class Authors implements OnInit {
     ) {
     }
 
-    public ngOnInit() {
+    public ngOnInit(): void {
         this.route.paramMap.subscribe(
             (params) => {
 
@@ -37,9 +37,17 @@ class Authors implements OnInit {
                 if (id) {
                     this.newsFeedService.getAuthors(id).subscribe(
                         (apiResponsePrototype: NewsFeedPrototype) => {
-                            this.apiResponsePrototype = apiResponsePrototype;
-                            this.title = this.apiResponsePrototype.name;
-                            this.authorPrototype = apiResponsePrototype.authors;
+
+                            if (apiResponsePrototype.success === false) {
+
+                                alert('Segment not found!');
+                                this.router.navigate(['menu']);
+                            } else {
+
+                                this.apiResponsePrototype = apiResponsePrototype;
+                                this.title = this.apiResponsePrototype.name;
+                                this.authorPrototype = apiResponsePrototype.authors;
+                            }
                         }
                     );
                 }

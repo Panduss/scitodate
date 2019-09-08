@@ -3,17 +3,23 @@
         <ion-header>
             <ion-toolbar color="dark">
                 <ion-title class="menu-logo">
-                    <img src="../../../assets/scitodate-logo.png" class="menu-image company-logo" />
+                    <img (click)="goToHomePage()" src="../../../assets/scitodate-logo.png" class="menu-image company-logo" />
                 </ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content class="menu-content">
             <ion-list class="menu-list">
                 <ion-menu-toggle [autoHide]="false" *ngFor="let page of pages">
-                    <ion-item [routerLink]="page.url" routerDirection="root" class="menu-item" [class.active-item]="selectedPath.startsWith(page.url)">
-                        <ion-label>
+                    <ion-item
+                            *ngIf="selectedPath"
+                            class="menu-item"
+                            [class.active-item]="selectedPath.startsWith(page.url)"
+                            [class.inactive-item]="!selectedPath.startsWith(page.url)"
+                            [routerLink]="page.url"
+                            routerDirection="root">
+                        <p>
                             {{page.title}}
-                        </ion-label>
+                        </p>
                     </ion-item>
                 </ion-menu-toggle>
                 <div class="menu-list-button">

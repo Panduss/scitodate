@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { WelcomePage } from '../../components/pages/welcome';
+import { HomePage } from '../../components/pages/home';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderModule } from '../components/header';
 
 const routes: Routes = [{
     path: '',
-    component: WelcomePage
+    component: HomePage
 }];
 
 @NgModule({
@@ -18,14 +18,14 @@ const routes: Routes = [{
         HeaderModule
     ],
     exports: [
-        WelcomePage
+        HomePage
     ],
     declarations: [
-        WelcomePage
+        HomePage
     ],
     entryComponents: [
-        WelcomePage
+        HomePage
     ]
 })
-export class WelcomeModule {
+export class HomeModule {
 }

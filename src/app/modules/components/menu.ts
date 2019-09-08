@@ -13,12 +13,12 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'welcome',
+                redirectTo: 'home',
                 pathMatch: 'full'
             },
             {
-                path: 'welcome',
-                loadChildren: '../pages/welcome#WelcomeModule'
+                path: 'home',
+                loadChildren: '../pages/home#HomeModule'
             },
             {
                 path: 'authors/:id',

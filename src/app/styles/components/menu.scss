@@ -1,6 +1,13 @@
 .active-item {
   border-left: 8px solid var(--ion-color-primary);
   --color-hover: var(--ion-color-light);
+  --color-activated: opacity(.0);
+}
+
+.inactive-item {
+  border-left: 8px solid var(--ion-color-dark);
+  --color-hover: var(--ion-color-light);
+  --color-activated: opacity(.0);
 }
 
 .menu-item {
@@ -30,6 +37,10 @@
   position: absolute;
   bottom: 0;
   left: 10px;
+}
+
+.menu-list-button.activated {
+  color: var(--ion-color-primary);
 }
 
 .right-margin {
