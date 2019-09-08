@@ -13,6 +13,7 @@ import { LoadingInterceptor } from './infrastructure/interceptor/loading';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { CacheInterceptor } from './infrastructure/interceptor/cache';
 
 @NgModule({
     declarations: [AppComponent],
@@ -35,12 +36,17 @@ import { environment } from '../environments/environment';
         NewsFeedService,
         {
             provide: HTTP_INTERCEPTORS,
-            useClass: CargoInterceptor,
+            useClass: CacheInterceptor,
             multi: true
         },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: LoadingInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: CargoInterceptor,
             multi: true
         },
         AngularFireAuth

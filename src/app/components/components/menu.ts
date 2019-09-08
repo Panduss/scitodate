@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-menu',
     templateUrl: '../../templates/components/menu.html',
     styleUrls: ['../../styles/components/menu.scss']
 })
-class Menu implements OnInit {
+class Menu implements OnInit, OnDestroy {
 
-    public selectedPath = '';
+    public selectedPath?: string;
+    private routeSubscription: Subscription = new Subscription();
 
     public pages = [
         {
@@ -28,8 +30,12 @@ class Menu implements OnInit {
     ) {
     }
 
-    ngOnInit() {
-        this.router.events.subscribe(
+    public goToHomePage(): void {
+        this.router.navigate(['home']);
+    }
+
+    public ngOnInit(): void {
+        this.routeSubscription = this.router.events.subscribe(
             (event) => {
                 if (event instanceof NavigationEnd) {
                     this.selectedPath = event.urlAfterRedirects;
@@ -41,6 +47,10 @@ class Menu implements OnInit {
     public logout(): void {
         this.firebase.auth.signOut();
         this.router.navigate(['login']);
+    }
+
+    public ngOnDestroy(): void {
+        this.routeSubscription.unsubscribe();
     }
 }
 

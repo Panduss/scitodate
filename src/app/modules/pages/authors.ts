@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { AuthorsPage } from '../../components/pages/authors';
 import { RouterModule, Routes } from '@angular/router';
-import { ListElementModule } from '../components/listElement';
 import { HeaderModule } from '../components/header';
 
 const routes: Routes = [{
@@ -15,7 +14,6 @@ const routes: Routes = [{
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        ListElementModule,
         HeaderModule
     ],
     declarations: [

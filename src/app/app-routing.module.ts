@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './infrastructure/middleware/authGuard';
 
 const routes: Routes = [
@@ -36,4 +36,12 @@ const routes: Routes = [
     ]
 })
 export class AppRoutingModule {
+
+    public constructor(
+        private router: Router
+    ) {
+        this.router.errorHandler = () => {
+            this.router.navigate(['menu']);
+        };
+    }
 }

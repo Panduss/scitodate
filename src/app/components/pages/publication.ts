@@ -17,6 +17,9 @@ export class Publication implements OnInit, OnDestroy {
         public route: ActivatedRoute,
         public sanitizer: DomSanitizer
     ) {
+    }
+
+    public ngOnInit(): void {
         this.paramSubscription = this.route.paramMap.subscribe(
             (params) => {
 
@@ -27,10 +30,6 @@ export class Publication implements OnInit, OnDestroy {
                 }
             }
         );
-    }
-
-    public ngOnInit() {
-
     }
 
     public ngOnDestroy(): void {
