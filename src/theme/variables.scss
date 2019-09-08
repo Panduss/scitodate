@@ -147,6 +147,29 @@
     }
   }
 
+  .badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    @include for-desktop {
+      justify-content: flex-end;
+    }
+
+    @include for-smaller-screen {
+      margin-top: 10px;
+      justify-content: center;
+    }
+  }
+
+  .name-container {
+
+    @include for-smaller-screen {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   hr {
     width: 100%;
   }
