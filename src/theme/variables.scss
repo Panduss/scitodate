@@ -126,6 +126,10 @@
     @include for-desktop {
       margin: 100px auto auto 100px;
     }
+
+    @include for-smaller-screen {
+      margin: 100px auto auto;
+    }
   }
 
   .home-page-message {
@@ -163,7 +167,6 @@
   }
 
   .name-container {
-
     @include for-smaller-screen {
       display: flex;
       justify-content: center;
