@@ -5,11 +5,10 @@
             <ion-card class="ion-padding" *virtualItem="let author">
                 <ion-grid>
                     <ion-row class="ion-justify-content-between">
-                        <ion-col size-sm="6" size-md="5" size-lg="4">
+                        <ion-col class="name-container" size-xs="12" size-sm="12" size-md="5" size-lg="4">
                             <h1 class="ion-no-padding ion-no-margin"><strong>{{ author.name }}</strong></h1>
                         </ion-col>
-                        <ion-col class="ion-text-center ion-align-self-end" size-sm="6"
-                                 size-md="7" size-lg="8">
+                        <ion-col class="ion-text-center ion-align-self-end" size-xs="12" size-sm="12" size-md="7" size-lg="8">
                             <div class="badges-container">
                         <span class="badges-item"
                               *ngFor="let termIndex of getTermIndexesForEachAuthor(author)">
@@ -23,7 +22,7 @@
                     </ion-row>
                     <hr color="tertiary">
                     <ion-row>
-                        <ion-col size-sm="6" size-md="5" size-lg="4">
+                        <ion-col size-xs="12" size-sm="6" size-md="5" size-lg="4">
                             <ion-row>
                                 <ion-grid>
                                     <ion-row *ngIf="author.latestCountry">
@@ -51,7 +50,7 @@
                                 </ion-grid>
                             </ion-row>
                         </ion-col>
-                        <ion-col size-sm="6" size-md="7" size-lg="8">
+                        <ion-col size-xs="12" size-md="7" size-lg="8">
                             <ion-row>
                                 <h3>Publications</h3>
                                 <hr color="medium">
